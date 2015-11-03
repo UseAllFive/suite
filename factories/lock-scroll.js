@@ -1,7 +1,8 @@
 /* global angular */
-angular.module('ua5App')
+angular.module('suite')
     .factory('LockScrollFactory', [function() {
         var keys;
+        
         // left: 37, up: 38, right: 39, down: 40,
         // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
         keys = {
@@ -10,6 +11,7 @@ angular.module('ua5App')
             39: 1,
             40: 1
         };
+        
         function preventDefault(e) {
             e = e || window.event;
             if (e.preventDefault) {

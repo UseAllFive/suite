@@ -1,0 +1,20 @@
+{
+  "name": "suite",
+  "main": "suite.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/UseAllFive/suite",
+  "authors": [
+    "Bret Morris <morris.bret@gmail.com>"
+  ],
+  "description": "The UA5 Toolbox of Reusable Code",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "jquery",
+    "sass"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.7"
+  }
+}
