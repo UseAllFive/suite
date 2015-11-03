@@ -16,7 +16,7 @@ Load suite after Angular but before your main app
 <script src="app.js"></script>
 ```
 
-Include the `suite` [https://docs.angularjs.org/guide/module](module) as a dependency in your main module.
+Include the `suite` [module](https://docs.angularjs.org/guide/module) as a dependency in your main module.
 
 ```
 angular.module('ua5App', ['suite']);
