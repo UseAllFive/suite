@@ -34,6 +34,16 @@ Add specific directives, filters and factories as needed
 
 ## What’s in the toolbox
 
+### Components
+
+#### orphan
+
+- Adds a `&nbsp;` between the last two words in text to prevent an orphan from occuring.
+- Usage:
+	- `<p orphan>This line will have no oprhans.</p>`
+- Requirements: 
+	- [jhttps://github.com/matthewlein/jQuery-widowFix](jQuery widowFix)
+
 ### Filters
 
 #### toTrusted
