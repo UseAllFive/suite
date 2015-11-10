@@ -1,6 +1,7 @@
 # Suite
 The UA5 Toolbox of Reusable Code
 
+
 ## Installation
 Download as a dependency using bower
 
