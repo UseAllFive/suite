@@ -46,6 +46,30 @@ Add specific directives, filters and factories as needed
 - Requirements: 
 	- [jhttps://github.com/matthewlein/jQuery-widowFix](jQuery widowFix)
 
+#### carousel
+
+- Create a [https://github.com/kenwheeler/slick/](Slick Carousel)
+- Usage: 
+```HTML
+<!-- Wrap each item of the carousel in a div with the `carousel` attribute -->
+<div 
+	carousel
+	carousel-options="myOptions">
+	<div>...</div>
+	<div>...</div>
+	<div>...</div>
+</div>
+```
+```JavaScript
+// Whatever options you want to pass the slick carousel
+$scope.myOptions = {
+	autoplay: true,
+	dots: true	
+};
+```
+- Requirements:
+	- [https://github.com/kenwheeler/slick/](Slick Carousel)
+
 ### Filters
 
 #### toTrusted

@@ -1,0 +1,75 @@
+.carousel {
+    visibility: hidden;
+
+    &.slick-initialized {
+        visibility: visible;
+    }
+
+    .slick-dots {
+        text-align: center;
+
+        li {
+            display: inline-block;
+
+            &.slick-active {
+
+                button:before {
+                    opacity: 1;
+                }
+            }
+
+            & + & {
+                margin-left: 8px;
+            }
+
+            button {
+                @include size(20px);
+                background: transparent;
+                border: 0;
+                color: transparent;
+                cursor: pointer;
+                display: block;
+                font-size: 0;
+                line-height: 0;
+                outline: none;
+                padding: 5px;
+
+
+
+                &:before {
+                    @include size(10px);
+                    @include transition(opacity 0.5s);
+                    background-color: $black;
+                    border-radius: 100%;
+                    content: '';
+                    display: block;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+@include media($mobile) {
+    .carousel {
+
+        .slick-dots {
+
+            li {
+
+                & + & {
+                    margin-left: 5px;
+                }
+
+                button {
+                    @include size(14px);
+                    padding: 3.5px;
+
+                    &:before {
+                        @include size(7px);
+                    }
+                }
+            }
+        }
+    }
+}
