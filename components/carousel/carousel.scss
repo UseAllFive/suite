@@ -51,7 +51,7 @@
     }
 }
 
-@include media($mobile) {
+@media screen and (max-width: 767px) {
     [data-carousel],
     [carousel] {
 
