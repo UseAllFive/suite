@@ -1,4 +1,5 @@
-.carousel {
+[data-carousel],
+[carousel] {
     visibility: hidden;
 
     &.slick-initialized {
@@ -51,7 +52,8 @@
 }
 
 @include media($mobile) {
-    .carousel {
+    [data-carousel],
+    [carousel] {
 
         .slick-dots {
 
