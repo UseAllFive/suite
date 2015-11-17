@@ -6,7 +6,6 @@ angular.module('suite')
             scope: {
                 carouselOptions: '='
             },
-            transclude: true,
             link: function($scope, element, attrs) {
                 $timeout(function() {
                     $(element).slick($scope.carouselOptions);
