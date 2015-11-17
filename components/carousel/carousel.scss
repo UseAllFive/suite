@@ -40,7 +40,7 @@
                 &:before {
                     @include size(10px);
                     @include transition(opacity 0.5s);
-                    background-color: $black;
+                    background-color: #000;
                     border-radius: 100%;
                     content: '';
                     display: block;
