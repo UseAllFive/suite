@@ -77,8 +77,8 @@ $scope.myOptions = {
 ```HTML
 <div
 	equalize
-	equalizeChildSelector=".child"
-	equalizeMobileBreakpoint="797">
+	equalize-child-selector=".child"
+	equalize-mobile-breakpoint="797">
 	<div class="child">
 		...
 	</div>
@@ -87,6 +87,8 @@ $scope.myOptions = {
 	</div>
 </div>
 ```
+- Requirements:
+	- [https://github.com/tsvensen/equalize.js/](Equalize)
 
 ### Filters
 

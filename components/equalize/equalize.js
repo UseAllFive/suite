@@ -7,7 +7,7 @@ angular.module('suite')
                 equalizeChildSelector: '@',
                 equalizeMobileBreakpoint: '@'
             },
-            link: function($scope, $element, $attrs) {
+            link: function($scope, element, $attrs) {
                 var $$element;
                 var $$window;
                 $$element = $(element);
