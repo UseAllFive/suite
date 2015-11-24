@@ -36,7 +36,6 @@ angular.module('suite')
                     // before the children are in place.
                     tryEqualize = _.throttle(function() {
                         count++;
-                        console.log(count);
                         if ($$element.find($scope.equalizeChildSelector).length !== 0 && count < TRY_MAX) {
                             equalize();
                         } else {
