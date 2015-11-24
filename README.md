@@ -70,6 +70,24 @@ $scope.myOptions = {
 - Requirements:
 	- [https://github.com/kenwheeler/slick/](Slick Carousel)
 
+#### equalize
+
+- Equalize the height of elements 
+- Usage: 
+```HTML
+<div
+	equalize
+	equalizeChildSelector=".child"
+	equalizeMobileBreakpoint="797">
+	<div class="child">
+		...
+	</div>
+	<div class="child">
+		...
+	</div>
+</div>
+```
+
 ### Filters
 
 #### toTrusted
