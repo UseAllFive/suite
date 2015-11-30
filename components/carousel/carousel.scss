@@ -1,10 +1,13 @@
 [data-carousel],
-[carousel] {
-    visibility: hidden;
+[carousel] {    
 
-    &.slick-initialized {
-        visibility: visible;
-    }
+    .slick-slider {
+        visibility: hidden;
+        
+        &.slick-initialized {
+            visibility: visible;
+        }
+    }    
 
     .slick-dots {
         text-align: center;
