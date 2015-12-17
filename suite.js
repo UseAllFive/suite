@@ -1,2 +1,4 @@
 /* global angular */
-angular.module('suite', []);
+angular.module('suite', [])
+	.value('metaDefaults', {})
+;

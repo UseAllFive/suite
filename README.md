@@ -114,3 +114,21 @@ $scope.myOptions = {
 - Usage:
 	- `LockScroll.enableScroll()`
 	- `LockScroll.disableScroll()`
+
+#### Meta
+
+- Update the metadata for every state change
+- Usage:
+	- Add `MetaFactory.set(metaObj)` in each state controller
+	- Configure defaults:
+
+```
+app.value('metaDefaults', {
+	title: 'Home',
+    description: 'Base Angular description',
+    image: 'http://base-angular.com/assets/img/share.jpg',
+    ogUrl: window.location.href,
+    prefix: '',
+    suffix: ' | Base Angular'
+})
+```
