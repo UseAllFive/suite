@@ -160,7 +160,7 @@ function mouseOutHandler(item) {
 - Plot lat/lon into 2D space (currently only for USA)
 - Remap a number
 - Usage: 
-```
+```javascript
 while (i--) {
     coords = GeoFactory.convertCoords(Number(data[i].latitude), Number(data[i].longitude));
     $dot = $('<a class="dot"></a>');
@@ -192,7 +192,7 @@ while (i--) {
 	- Add `MetaFactory.set(metaObj)` in each state controller
 	- Configure defaults:
 
-```
+```javascript
 app.value('metaDefaults', {
 	title: 'Home',
     description: 'Base Angular description',
