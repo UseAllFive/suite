@@ -1,10 +1,11 @@
 {
   "name": "suite",
   "main": "suite.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/UseAllFive/suite",
   "authors": [
-    "Bret Morris <morris.bret@gmail.com>"
+    "Bret Morris <morris.bret@gmail.com>",
+    "Jason Farrell <jason@useallfive.com>"
   ],
   "description": "The UA5 Toolbox of Reusable Code",
   "moduleType": [],
