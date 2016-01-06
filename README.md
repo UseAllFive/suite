@@ -103,8 +103,9 @@ $scope.myOptions = {
 ### Factories
 
 #### BaseThreeScene
-- Creates a three.js Scene, Camera, and Renderer
+- Creates a three.js Scene and Camera
 - Hooks for mouse over and mouse out on any object
+- Provides common functionality for resize(), startRender(), stopRender(), destroy()
 - Usage:
 ```javascript
 // Usually put this in the app.js and build it once:
@@ -115,14 +116,15 @@ $rootScope.renderer = new THREE.WebGLRenderer({
 // In a Directive:
 var scene = new BaseThreeScene();
 var sphere;
+var $$el = $('.my-canvas');
 
 function init() {
-    var $el = $('.quiltCanvas');
+    
     var geometry;
     var material;
-    $el.click(clickHandler);
-    scene.init($el, $rootScope.renderer, onRender, mouseOverHandler, mouseOutHandler);
-    $rootScope.quiltRenderer.setClearColor(0xffffff);
+    $$el.click(clickHandler);
+    scene.init($$el, $rootScope.renderer, onRender, mouseOverHandler, mouseOutHandler);
+    $rootScope.renderer.setClearColor(0xffffff);
     geometry = new THREE.SphereGeometry(134, 6, 6);
     material = new THREE.MeshBasicMaterial({color: 0xff0000});
     sphere = new THREE.Mesh(geometry, material);
@@ -147,6 +149,12 @@ function mouseOverHandler(item) {
 function mouseOutHandler(item) {
     console.log('Mouse Out: ', item);
 }
+
+$rootScope.$on('app:resized', function() {
+    $$el.width($(window).width());
+    $$el.height($(window).height());
+    scene.resize();
+});
 ```
 
 #### BrowserFactory
