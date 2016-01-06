@@ -230,7 +230,7 @@ angular.module('suite').factory('BaseThreeScene', ['$rootScope', 'BrowserFactory
                 setCursorPosition: setCursorPosition,
                 startRendering: startRendering,
                 stopRendering: stopRendering,
-                updateDimensions: updateDimensions
+                resize: updateDimensions
             };
         };
     }
