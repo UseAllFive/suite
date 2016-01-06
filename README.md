@@ -106,7 +106,7 @@ $scope.myOptions = {
 - Creates a three.js Scene, Camera, and Renderer
 - Hooks for mouse over and mouse out on any object
 - Usage:
-```
+```javascript
 // Usually put this in the app.js and build it once:
 $rootScope.renderer = new THREE.WebGLRenderer({
     antialias: (BrowserFactory.hasTouch()) ? false : true
