@@ -2,26 +2,35 @@
 angular.module('suite')
     .factory('CanvasTypeFactory', [function() {
 
-        function fillTextLine(context, text, x, y, letterSpacing) {
-
+        function fillTextLine(context, text, x, y, letterSpacing, alignRight, maxWidth) {
             var characters = String.prototype.split.call(text, ''),
-            index = 0,
+            index = alignRight ? (text.length - 1) : 0,
             current,
-            currentPosition = x;
+            currentPosition = alignRight ?
+                (maxWidth - letterSpacing - context.measureText(characters[text.length - 1]).width) :
+                x;
 
             if (letterSpacing === 0) {
                 context.fillText(text, x, y);
                 return;
             }
 
-            while (index < text.length) {
-                current = characters[index++];
-                context.fillText(current, currentPosition, y);
-                currentPosition += (context.measureText(current).width + letterSpacing);
+            if (!alignRight) {
+                while (index < text.length) {
+                    current = characters[index++];
+                    context.fillText(current, currentPosition, y);
+                    currentPosition += (context.measureText(current).width + letterSpacing);
+                }
+            } else {
+                while (index >= 0) {
+                    current = characters[index--];
+                    currentPosition -= (context.measureText(current).width + letterSpacing);
+                    context.fillText(current, currentPosition, y);
+                }
             }
         }
 
-        function wrapText(context, text, x, y, maxWidth, lineHeight, maxLines, letterSpacing) {
+        function wrapText(context, text, x, y, maxWidth, lineHeight, maxLines, letterSpacing, alignRight) {
             var chars;
             var currentNumLines;
             if (typeof text === 'undefined') {
@@ -46,11 +55,11 @@ angular.module('suite')
                         if (currentNumLines > maxLines - 1) {
                             line = line.substring(0, line.length - 3).slice(0, -2).trim();
                             line += '…';
-                            fillTextLine(context, line, x, y, letterSpacing);
+                            fillTextLine(context, line, x, y, letterSpacing, alignRight, maxWidth);
                             //context.fillText(line, x, y);
                             return y;
                         }
-                        fillTextLine(context, line, x, y, letterSpacing);
+                        fillTextLine(context, line, x, y, letterSpacing, alignRight, maxWidth);
                         //context.fillText(line, x, y);
                         line = words[n] + ' ';
                         y += lineHeight;
@@ -58,7 +67,7 @@ angular.module('suite')
                         line = testLine;
                     }
                 }
-                fillTextLine(context, line, x, y, letterSpacing);
+                fillTextLine(context, line, x, y, letterSpacing, alignRight, maxWidth);
                 //context.fillText(line, x, y);
                 y += lineHeight;
             }
