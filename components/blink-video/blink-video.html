@@ -1,0 +1,24 @@
+<a
+    class="blink-video"
+    ng-style="backgroundStyle"
+    ng-class="{'canplay': canplay}">
+    <div class="blink-video__inner">
+        <h2
+            class="blink-video__title"
+            ng-bind-html="blinkVideoData.header">
+        </h2>
+        <div
+            class="blink-video__play"
+            ng-include="'assets/img/icon-play.svg'">
+        </div>
+        <div
+            class="blink-video__description"
+            ng-bind="blinkVideoData.description">
+        </div>
+    </div>
+    <video
+        class="blink-video__video"
+        src="{{video}}"
+        webkit-playsinline>
+    </video>
+</a>
