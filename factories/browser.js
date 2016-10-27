@@ -8,6 +8,7 @@ angular.module('suite')
         var isOpera;
         var isAndroid;
         var isEdge;
+        var isWkWebView = false;
         isChrome = navigator.userAgent.indexOf('Chrome') > -1;
         isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
         isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
@@ -24,6 +25,20 @@ angular.module('suite')
         }
         if ((isChrome) && (isEdge)) {
             isChrome = false;
+        }
+        if (navigator.platform.substr(0, 2) === 'iP') {
+            //iOS (iPhone, iPod or iPad)
+            var lte9 = /constructor/i.test(window.HTMLElement);
+            var nav = window.navigator, ua = nav.userAgent, idb = !!window.indexedDB;
+
+            if (ua.indexOf('Safari') !== -1 && ua.indexOf('Version') !== -1 && !nav.standalone) {
+                //Safari (WKWebView/Nitro since 6+)
+            } else if ((!idb && lte9) || !window.statusbar.visible) {
+                //UIWebView
+            } else if ((window.webkit && window.webkit.messageHandlers) || !lte9 || idb) {
+                //WKWebView
+                isWkWebView = true;
+            }
         }
         return {
             isSafari: function() {
@@ -46,6 +61,9 @@ angular.module('suite')
             },
             isAndroid: function() {
                 return isAndroid;
+            },
+            isWkWebView: function() {
+                return isWkWebView;
             }
         };
     }])
