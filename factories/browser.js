@@ -10,6 +10,7 @@ angular.module('suite')
         var isEdge;
         var isWkWebView = false;
         var isMobile = false;
+        var isIframe = false;
         isChrome = navigator.userAgent.indexOf('Chrome') > -1;
         isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
         isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
@@ -47,6 +48,12 @@ angular.module('suite')
             isMobile = true;
         }
 
+        if (window.self !== window.top) {
+            isIframe = true;
+        } else {
+            isIframe = false;
+        }
+
         return {
             isSafari: function() {
                 return isSafari;
@@ -74,6 +81,9 @@ angular.module('suite')
             },
             isMobile: function() {
                 return isMobile;
+            },
+            isIframe: function() {
+                return isIframe;
             }
         };
     }])
